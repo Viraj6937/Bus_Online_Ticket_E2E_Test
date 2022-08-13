@@ -1,0 +1,14 @@
+package Resources;
+
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+public class ExtentSparkReportNG {
+
+	public static ExtentSparkReporter  reporter;
+	
+	public static ExtentReport extent;
+	public void getReportObject() {
+	
+		
+	}
+}

@@ -1,0 +1,9 @@
+package PageObject;
+
+import org.openqa.selenium.By;
+
+public class Payment_Page_Object {
+
+	private By proceedToPaymentSubmitButton = By.cssSelector("div.payment-section > div.enterdetailscenter > input[value='Proceed to Payment']");
+	
+}

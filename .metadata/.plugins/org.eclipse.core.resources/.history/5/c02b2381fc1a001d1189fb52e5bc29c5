@@ -1,0 +1,85 @@
+package TestFile;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.testng.annotations.*;
+
+import PageObject.Landing_Page_Object;
+import Resources.Base;
+
+public class Ticket_Booking_Test extends Base {
+
+	
+	
+	/*
+	 * 1. Hit the mentioned url
+	 * 2. Select source as Cameron Highlands and destination as Kaula Lumpur 
+	 * 3. Select date as 20th of next month
+	 * 4. Search for a bus 
+	 * 5. Select the seats for the bus with least adult cost (Do not use the sort button) and Select max of 6
+          seats or all seats if less than 6 in the layout
+	 * 6. Click on Proceed 
+	 * 7. Enter Personal Details 
+	 * 8. Click on proceed to payment (Do not choose any payment type) and Assert for the Alert pop up
+          and print the alert message.
+	 * 	  
+	 */
+	
+	
+	@BeforeMethod
+	public void navigateUrl() throws IOException {
+		driver = initializeDriver();
+        driver.get(prop.getProperty("url"));
+        driver.manage().window().maximize();
+	}
+	
+	@Test(dataProvider="busdetails")
+	public void assessment(String source, String destination, String departureDate,String busName) throws InterruptedException {
+
+		Landing_Page_Object lpo = new Landing_Page_Object(driver);
+		
+		try {
+			lpo.get_source_field(source);
+			lpo.get_destination_field(destination);
+			lpo.get_select_date(departureDate);	
+		}
+		catch(Exception e) {
+			lpo.get_search_bus_submit_button().click();
+		}
+		
+		
+		
+		//select bus
+		List<WebElement> busList = lpo.getBusList();
+		for(int i=0; i<busList.size();i++) {
+			String busListVal = busList.get(i).getText();
+			if(busListVal.contains(busName)) {
+				int rowIndex = busList.size() - 13;
+				driver.findElement(By.cssSelector("div#content > div > div.layout.container > div#ContentPlaceHolder1_divResult > div > div#divDesktopView > div > div#divdepart > div.tab-content > div > table > tbody > tr:nth-Child("+rowIndex+") > td:nth-Child(6) > a.selectseatbutton")).click();
+			}
+		}
+		
+		
+	
+	}
+	
+	@AfterMethod
+	public void terminate() {
+		driver.quit();
+	}
+	
+
+	@DataProvider(name="busdetails")
+	public Object[][] getData(){
+		Object[][] data = new Object[1][4];
+		data[0][0] = "Cameron Highlands";
+	    data[0][1] = "Kuala Lumpur"; 
+		data[0][2] = "August 2022";
+		data[0][3] = "C.S Express";
+		return data;
+	}
+	
+}

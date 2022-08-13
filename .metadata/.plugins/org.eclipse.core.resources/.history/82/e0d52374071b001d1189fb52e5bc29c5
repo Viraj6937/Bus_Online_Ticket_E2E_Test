@@ -1,0 +1,19 @@
+package PageObject;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class Payment_Page_Object {
+
+	public WebDriver driver;
+	
+	private By proceedToPaymentSubmitButton = By.cssSelector("div.payment-section > div.enterdetailscenter > input[value='Proceed to Payment']");
+	
+	
+	public WebElement getProceedToPaymentButton() {
+		return driver.findElement(proceedToPaymentSubmitButton);
+	}
+	
+	
+}

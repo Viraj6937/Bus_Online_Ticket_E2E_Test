@@ -1,0 +1,30 @@
+package PageObject;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class Landing_Page_Object {
+
+	public WebDriver driver;
+	
+	private By fromField = By.cssSelector("div#content > div > div.general-search-wrapper > div.container > div.new-search > div.d-flex.date-selection-group > div > div.input-group > input#txtOriginGeneral");
+	
+	private By destinationField = By.cssSelector("div#content > div > div.general-search-wrapper > div.container > div.new-search > div.d-flex.date-selection-group > div > div.input-group > input#txtDestinationGeneral");
+	
+			
+    public Landing_Page_Object(WebDriver driver) {
+		// TODO Auto-generated constructor stub
+    	this.driver = driver;
+	}
+
+	public WebElement get_source_field() {
+    	return driver.findElement(fromField);
+    }
+ 
+    public WebElement get_destination_field() {
+    	return driver.findElement(destinationField);
+    }
+    
+}
+

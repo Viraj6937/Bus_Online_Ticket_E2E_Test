@@ -1,0 +1,14 @@
+package PageObject;
+
+import org.openqa.selenium.By;
+
+public class Bus_And_Seat_Book_Page_Object {
+
+  private By bus_list = By.cssSelector("div#content > div > div.layout.container > div#ContentPlaceHolder1_divResult > div > div#divDesktopView > div > div#divdepart > div.tab-content > div > table > tbody > tr");
+	
+  private By proceed_button = By.cssSelector("div#divDesktopView > div > div#divdepart > div.tab-content > div > table > tbody > tr:nth-Child(2) > td > div.businnerdiv > table > tbody > tr > td:nth-Child(2) > input[value='Proceed']");
+	
+  
+  
+	
+}

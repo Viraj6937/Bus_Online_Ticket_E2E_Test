@@ -1,0 +1,10 @@
+package PageObject;
+
+import org.openqa.selenium.By;
+
+public class Passenger_Details_Page_Object {
+
+	public WebDriver driver;
+	private By fullNameField = By.cssSelector("div#content > div > section > div > div.content-wrapper > div > div.form-group > input.payment_textName");
+	
+}

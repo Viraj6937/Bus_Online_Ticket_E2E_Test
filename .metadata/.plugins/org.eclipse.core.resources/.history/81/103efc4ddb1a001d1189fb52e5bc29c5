@@ -1,0 +1,11 @@
+package Resources;
+
+public class Base {
+
+	public WebDriver driver;
+	
+	public void initializeDriver() {
+		
+	}
+	
+}

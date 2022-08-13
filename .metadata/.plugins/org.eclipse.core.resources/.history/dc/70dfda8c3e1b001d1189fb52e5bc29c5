@@ -1,0 +1,11 @@
+package Resources;
+
+public class ExtentSparkReporterNG {
+
+	public static ExtentReports reporter;
+	
+	
+	public void getReportObject() {
+		
+	}
+}
