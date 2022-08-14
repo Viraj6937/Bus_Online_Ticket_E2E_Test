@@ -1,9 +1,0 @@
-package PageObject;
-
-import org.openqa.selenium.By;
-
-public class Landing_Page_Object {
-
-	private By sourceField = By.cssSelector("");
-	
-}
